@@ -24,7 +24,8 @@
             var headerHtml = params.title ? '<div class="aui-dialog-header">' + params.title + '</div>' : '<div class="aui-dialog-header">' + self.params.title + '</div>';
             if(params.input){
                 params.text = params.text ? params.text: '';
-                var msgHtml = '<div class="aui-dialog-body"><input type="text" id="aui_' + params.title + '" placeholder="'+params.text+'"></div>';
+                params.intval = params.intval ? 'type="number"  onkeyup=this.value=this.value.replace(/\D/g,"") onafterpaste=this.value=this.value.replace(/\D/g,"")' : 'type="text"';
+                var msgHtml = '<div class="aui-dialog-body"><input '+params.intval+' id="aui_' + params.title + '" placeholder="'+params.text+'"></div>';
             }else{
                 var msgHtml = params.msg ? '<div class="aui-dialog-body">' + params.msg + '</div>' : '<div class="aui-dialog-body">' + self.params.msg + '</div>';
             }
