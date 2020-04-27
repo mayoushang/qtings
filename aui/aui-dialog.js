@@ -25,8 +25,9 @@
             if(params.input){
                 params.text = params.text ? params.text: '';
                 params.value = params.value ? params.value: '';
+                params.html = params.html ? params.html: '';
                 params.intval = params.intval ? 'type="number"  onkeyup=this.value=this.value.replace(/\D/g,"") onafterpaste=this.value=this.value.replace(/\D/g,"")' : 'type="text"';
-                var msgHtml = '<div class="aui-dialog-body"><input '+params.intval+' id="aui_' + params.title + '" placeholder="'+params.text+'" value="'+params.value+'"></div>';
+                var msgHtml = '<div class="aui-dialog-body"><input '+params.intval+' id="aui_' + params.title + '" placeholder="'+params.text+'" value="'+params.value+'">'+params.html+'</div>';
             }else{
                 var msgHtml = params.msg ? '<div class="aui-dialog-body">' + params.msg + '</div>' : '<div class="aui-dialog-body">' + self.params.msg + '</div>';
             }
