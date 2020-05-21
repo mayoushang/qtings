@@ -57,6 +57,10 @@
         	if(!document.querySelector(__MASK)){
 				var maskHtml = '<div class="aui-mask"></div>';
 				document.body.insertAdjacentHTML('beforeend', maskHtml);
+                document.querySelector(".aui-mask").addEventListener("click",function(e){
+                    popup.hide();
+                });
+
 			}
         	el.style.display = "block";
         	setTimeout(function(){
