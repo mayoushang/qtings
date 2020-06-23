@@ -1,6 +1,5 @@
-var instanceId = mq.instanceid;//实例 ID，购买后从控制台获取
 var host = mq.host;// 设置当前用户的接入点域名，接入点获取方法请参考接入准备章节文档，先在控制台创建实例
-var port = window.location.protocol=="https:" ? 443 : 80;//WebSocket 协议服务端口，如果是走 HTTPS，设置443端口
+var port = window.location.protocol=="https:" ? 8084 : 8083;//WebSocket 协议服务端口，如果是走 HTTPS，设置443端口
 var topic = mq.barrage_topic;//需要操作的 Topic,第一级父级 topic 需要在控制台申请
 var useTLS = window.location.protocol=="https:" ? true : false;//是否走加密 HTTPS，如果走 HTTPS，设置为 true
 var accessKey = mq.AccessKeyId;//账号的 AccessKey，在阿里云控制台查看
@@ -9,8 +8,8 @@ var cleansession = true;
 var clientId = mq.clientId;//GroupId@@@DeviceId，由控制台创建的 Group ID 和自己指定的 Device ID 组合构成
 var mqtt;
 var reconnectTimeout = 2000;
-var username = 'Signature|' + accessKey + '|' + instanceId;//username和 Password 签名模式下的设置方法，参考文档 https://help.aliyun.com/document_detail/48271.html?spm=a2c4g.11186623.6.553.217831c3BSFry7
-var password = mq.AccessKeySecret;
+var username = accessKey
+var password = secretKey;
 
 function MQTTconnect() {
 	mqtt = new Paho.MQTT.Client(
